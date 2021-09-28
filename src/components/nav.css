@@ -1,0 +1,56 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    background: black;
+    color: white;
+    text-transform: capitalize;
+}
+
+.navbar .brand-name {
+    font-size: calc(1.2rem + 1vw);
+    line-height: 15vh;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+}
+
+.navbar ul li {
+    padding: 0 10px;
+}
+
+.navbar ul li button {
+    cursor: pointer;
+    background: none;
+    color: rgb(0, 145, 255);
+    border: 1px solid rgb(0, 145, 255);
+    padding: 10px 15px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.navbar ul li button:hover {
+    background: rgb(0, 145, 255);
+    color: white;
+}
+
+.navbar .menu {
+    display: none;
+}
+
+@media only screen and (max-width:1000px) {
+    .navbar ul {
+        display: none;
+    }
+    
+    .navbar .menu {
+        display: block;
+        font-size:1.5rem;
+        cursor: pointer;
+    }
+}

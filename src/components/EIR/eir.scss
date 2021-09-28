@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@mixin flex($justify) {
+    display: flex;
+    align-items: top;
+    justify-content: $justify;
+}
+
+.eir {
+    width: 100%;
+    @include flex(space-between);
+
+
+
+    .filter {
+        width: 30%;
+        padding: 20px;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+
+        .close {
+            display: none;
+            padding-bottom: 20px;
+            font-size: 1.5rem;
+
+            svg {
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+
+        .main-filter {
+            margin-left: 10px;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style-type: none;
+            text-transform: capitalize;
+
+            p {
+                font-size: 1.2rem;
+                font-weight: 500;
+                margin: 10px 0;
+            }
+
+            h3 {
+                cursor: pointer;
+                padding: 5px 0;
+            }
+
+
+            .select {
+                margin-left: 10px;
+
+                li {
+                    padding: 5px 0;
+                }
+            }
+
+            .dropdown-menu {
+
+                .dropdown-container {
+                    height: 0;
+                    transition: .3s linear;
+                    opacity: 0;
+
+                }
+
+                .dropdown-open {
+                    height: 280px;
+                    transition: .3s linear;
+                    opacity: 1;
+                }
+            }
+
+        }
+    }
+
+
+    .main {
+        width: 70%;
+        .filter-icon {
+                width: 100%;
+                background: rgb(212, 211, 211);
+                display: flex;
+                padding: 20px;
+                border-radius: 10px 10px 0 0;
+                display: none;
+
+                svg {
+                    margin-left: auto;
+
+                }
+            }
+
+        form {
+            max-width: 450px;
+            margin: 100px auto;
+
+            
+
+
+            .main-s {
+                padding: 30px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgb(212, 211, 211);
+                border-radius: 10px 10px 0 0px;
+
+                backdrop-filter: blur(5px);
+
+                p {
+                    font-weight: 800;
+
+                }
+
+                label,
+                input,
+                p {
+                    display: block;
+                    margin: 10px 0;
+                    padding: 10px;
+                    text-transform: capitalize;
+
+
+
+                }
+
+                input {
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                }
+
+
+
+                .warn {
+                    border: 1px solid red;
+                    background: rgba(255, 0, 76, 0.13);
+                }
+
+            }
+
+            .buttons {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0;
+                background: rgb(212, 211, 211);
+                padding: 15px;
+                border-radius: 0 0 10px 10px;
+
+                select {
+                    border: none;
+                    outline: none;
+                    background: none;
+                }
+
+                button {
+                    outline: none;
+                    padding: 10px 15px;
+                    text-transform: uppercase;
+                    border-radius: 5px 0 0 5px;
+                    cursor: pointer;
+                    border: none;
+                    background: rgb(0, 51, 255);
+                    color: white;
+                    border: 1px solid rgb(0, 51, 255);
+
+                    &:nth-child(2) {
+                        border: 1px solid rgb(0, 51, 255);
+                        color: rgb(0, 51, 255);
+                        background: none;
+                        border-radius: 0 5px 5px 0;
+
+                        &:hover {
+                            background: rgb(0, 51, 255);
+                            color: white;
+                        }
+                    }
+
+                }
+
+            }
+
+
+
+
+        }
+
+        .bank {
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+    }
+
+}
+
+@media only screen and (max-width:700px) {
+
+    .eir {
+        .main {
+            width: 100%;
+            .filter-icon {
+                display: flex;
+                cursor:pointer;
+            }
+            form{
+                .main-s{
+                    padding-top:0;
+                    border-radius: 0;
+                }
+            }
+            
+        }
+
+        .filter {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            background: black;
+            color: white;
+            height: 100vh;
+            transition: .3s linear;
+            z-index: 5;
+            transform: translateX(100%);
+
+            .close {
+                display: flex;
+            }
+        }
+
+        .filter-open {
+            transform: translateX(0%);
+            transition: .3s linear;
+        }
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .eir {
+
+        .main {
+            form {
+                .main-s {
+                    border-radius: unset;
+
+                    .title {
+                        display: none;
+                    }
+
+                    p {
+                        display: none;
+                    }
+
+                    .input {
+                        width: 80%;
+                    }
+
+                    input {
+                        width: calc(100% - 20px);
+                    }
+                }
+
+                .buttons {
+                    border-radius: unset;
+
+                    .btn-group {
+                        width: 100%;
+                    }
+
+                    p {
+                        margin: 20px 0;
+                    }
+                }
+            }
+        }
+    }
+}
